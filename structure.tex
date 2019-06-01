@@ -1,0 +1,64 @@
+\usepackage{lmodern} % Or use the Bitstream Charter font {XCharter} / Which better?
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[top=1cm,left=1cm,right=1cm,bottom=1cm]{geometry} % Modify margins
+\usepackage{graphicx} % Required for figures
+\usepackage{flowfram} % Required for the multi-column layout
+\usepackage{url} % URLs
+\usepackage[usenames,dvipsnames]{xcolor} % Required for custom colours
+\usepackage{tikz} % Required for the horizontal rule
+\usepackage{enumitem} % Required for modifying lists
+
+\usepackage{hyperref}% Required for Url
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ulined}{}
+\DeclareUrlCommand{\blueUrl}{\def\UrlFont{\ttfamily\color{blue}\ulined}}
+
+\setlist{noitemsep,nolistsep} % RemoveSpacingWithinLists
+\setlength{\columnsep}{\baselineskip} % SpacingBetweenColumns
+
+% LeftFrame
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+\newlength{\LeftMainSep}
+\setlength{\LeftMainSep}{0.2\textwidth}
+\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% VerticalLine
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+\begin{staticcontents}{1}
+\hfill
+\tikz{\draw[loosely dotted,color=RoyalBlue,line width=1.5pt,yshift=0](0,0) -- (0,\textheight);}
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% RightFrame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+\pagestyle{empty} % DisableNumbering
+\setlength{\parindent}{0pt} % StopParagraphIndentation
+
+% NewCommand
+\newcommand{\userinformation}[1]{\renewcommand{\userinformation}{#1}} % LeftColumn
+\newcommand{\CVheading}[1]{{\Huge\bfseries\color{RoyalBlue} #1} \par\vspace{.3\baselineskip}} % Heading
+\newcommand{\CVsubheading}[2]{{\small #1 \\ #2 \bigbreak} } % Subheading {\small #1 \\ #2 \bigbreak} 
+\newcommand{\largeSep}{\vspace{6.3em}}
+\newcommand{\mediumSep}{\vspace{2.7em}}
+\newcommand{\sep}{\vspace{0.9em}} % sep
+\newcommand{\smallSep}{\vspace{0.1em}} % smallSep
+\newcommand{\aboutme}[2]{ % Introduction
+\textbf{\color{RoyalBlue} #1}~~#2\par\Sep
+}
+\newcommand{\CVSection}[1]{ % Section
+{\Large\textbf{#1}}\par
+\smallSep
+}
+\newcommand{\CVItem}[3]{ % Item
+\textbf{\color{RoyalBlue} #1} \hfill#2 \par
+#3\par
+\smallSep
+}
+\newcommand{\bluecirc}{\textcolor{RoyalBlue}{$\circ$}~~} 
+\newcommand{\bluebullet}{\textcolor{RoyalBlue}{$\bullet$}~~} 
+
